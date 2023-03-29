@@ -1,0 +1,35 @@
+﻿@model IEnumerable<vidly.Models.Video>
+@{
+    ViewBag.Title = "ReadOnlyList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Video</h2>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                Video
+            </th>
+            <th>
+                Category
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var video in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(video.Name, "Details", "Videos", new { id = video.Id }, null)
+                </td>
+                <td>
+                    @video.Category.Name
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
